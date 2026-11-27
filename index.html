@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff7fa">
+<meta name="description" content="LITTLE MONSTERS — 네 명의 작은 괴물과 한 명의 보호자. SID 기밀 생활 관찰 기록.">
+<title>LITTLE MONSTERS — SID FIELD ARCHIVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'SchoolSafetyRoundedSmile';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-R.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SchoolSafetyRoundedSmile';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #fff7fa;
+  --surface: #fffdfd;
+  --surface-subtle: #ffeaf1;
+  --ink: #402632;
+  --ink-secondary: #765765;
+  --ink-muted: #a17d8d;
+  --line: #f0cbd8;
+  --line-strong: #d99bad;
+  --accent: #e8799e;
+  --accent-soft: #ffe3ed;
+  --amber: #9c78c8;
+  --amber-soft: #f0e7fb;
+  --radius: 4px;
+  --mono: 'DM Mono', monospace;
+  --sans: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 21px;
+  line-height: 1.65;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.wrap {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bd557b;
+  margin: 0 0 12px;
+}
+
+/* Hero */
+.hero {
+  background: #ffffff;
+  padding: 96px 0 84px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 56px;
+  align-items: end;
+}
+
+.hero-kicker {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #bd557b;
+  margin: 0 0 16px;
+}
+
+.hero h1 {
+  font-size: clamp(56px, 8.5vw, 96px);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  margin: 0 0 24px;
+}
+
+.hero-copy {
+  max-width: 520px;
+  font-size: 22px;
+  color: var(--ink-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.hero-copy strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: #fff8fb;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 #e99ab4;
+  transition: background 0.15s ease, transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.btn-primary:hover {
+  background: #573545;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #e99ab4;
+}
+
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #e99ab4;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 #f0c1d1;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+}
+
+.btn-secondary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #e99ab4;
+}
+
+.btn-secondary:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #e99ab4;
+}
+
+.hero-meta {
+  border-top: 3px solid var(--ink);
+  padding-top: 12px;
+}
+
+.hero-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 18px;
+}
+
+.hero-meta-row span:first-child {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: #966c7e;
+}
+
+.hero-meta-row strong {
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Sections */
+.section {
+  padding: 76px 0;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.section h2 {
+  font-family: 'SchoolSafetyRoundedSmile', 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: clamp(40px, 5.5vw, 60px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.section-intro {
+  max-width: 480px;
+  font-size: 15.5px;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+.manual-grid .section-intro {
+  max-width: none;
+}
+
+/* 01 World */
+.world-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.world-lead {
+  font-size: 22px;
+  line-height: 1.8;
+  margin: 20px 0 0;
+  color: var(--ink);
+}
+
+.world-sub {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+  margin: 12px 0 0;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.tag-list span {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  background: #fff0f5;
+  border: 1px solid #e7b4c5;
+  border-radius: var(--radius);
+  color: #805568;
+}
+
+.org-list {
+  border-top: 2px solid var(--ink);
+}
+
+.org-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.org-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.org-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.org-item h3 {
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.org-item .mono {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.org-item p {
+  font-size: 14px;
+  color: var(--ink-secondary);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.org-sub {
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 3px 3px 0 #f7d4df;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.org-sub-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.org-sub-head h4 {
+  margin: 0;
+  font-size: 19.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.org-sub-head .mono {
+  color: #bd557b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.org-item .pillar-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+.tier-list {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 9px;
+}
+
+.tier-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.tier-tag {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-subtle);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tier-tag.is-green { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.tier-tag.is-orange { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+.tier-tag.is-red { background: #ffe2eb; color: #b94f76; border-color: #edb1c5; }
+.tier-tag.is-black { background: var(--ink); color: #fff8fb; border-color: var(--ink); }
+
+.tier-note {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+  line-height: 1.45;
+}
+
+/* 02 Project Brief */
+.project-summary h1 {
+  font-size: clamp(32px, 4.2vw, 44px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.project-summary h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  margin: 14px 0 14px;
+}
+
+.project-summary p {
+  font-size: 19.5px;
+  color: var(--ink-secondary);
+  line-height: 1.75;
+  margin: 0 0 24px;
+}
+
+.warning-line {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.warning-line strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: #c24670;
+  margin-bottom: 6px;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 2px solid var(--ink);
+}
+
+.fact-cell {
+  padding: 16px 14px 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fact-cell dt {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #a36f85;
+  margin-bottom: 4px;
+}
+
+.fact-cell dd {
+  margin: 0;
+  font-size: 19.5px;
+  font-weight: 600;
+}
+
+.fact-cell.is-wide {
+  grid-column: 1 / -1;
+}
+
+.fact-cell dd.is-secret {
+  color: #c24670;
+  font-weight: 700;
+}
+
+/* 03 Roster */
+.roster-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink-secondary);
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff8fb;
+  box-shadow: 3px 3px 0 #efaec3;
+}
+
+.roster-count {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  padding: 22px;
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 5px 5px 0 #f7d4df;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.character-card:hover {
+  transform: translate(-2px, -2px);
+  border-color: var(--ink);
+  box-shadow: 7px 7px 0 #f2c0d0;
+}
+
+.character-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--char-bg, var(--surface-subtle));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.character-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.character-img .img-placeholder {
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.character-img .img-placeholder b {
+  display: block;
+  font-family: var(--sans);
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--ink);
+  opacity: 0.35;
+  line-height: 1.1;
+}
+
+.character-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.character-id-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.character-glyph {
+  width: 70px;
+  height: 70px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  font-weight: 900;
+  font-size: 34px;
+  background: var(--char-bg, var(--surface-subtle));
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.character-name {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.character-title {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin: 5px 0 0;
+  letter-spacing: 0.08em;
+}
+
+.threat-badge {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+}
+
+.threat-badge.is-red {
+  background: #ffe2eb;
+  color: #b94f76;
+  border-color: #edb1c5;
+}
+
+.threat-badge.is-orange {
+  background: #f0e7fb;
+  color: #8060aa;
+  border-color: #d8c4ef;
+}
+
+.character-specs {
+  margin: 0;
+  padding: 2px 0;
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 8px 14px;
+  font-size: 15px;
+}
+
+.character-specs dt {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: #a36f85;
+  padding-top: 2px;
+}
+
+.character-specs dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* 04 Daily Log */
+.manual-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.progress-panel {
+  margin-top: 28px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 #f7d4df;
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 15px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--surface-subtle);
+  margin: 12px 0;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 2px solid var(--ink);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 10px;
+  border-bottom: 1px solid var(--line);
+  cursor: default;
+  pointer-events: none;
+}
+
+.task input {
+  appearance: none;
+  width: 21px;
+  height: 21px;
+  flex: none;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  margin: 0;
+  opacity: 1;
+}
+
+.task input:checked {
+  background: var(--accent);
+  border-color: var(--ink);
+}
+
+.task input:checked::after {
+  content: '✓';
+  font-size: 15px;
+  color: var(--surface);
+  font-weight: 800;
+}
+
+.task span {
+  font-size: 19.5px;
+  font-weight: 500;
+}
+
+.task:has(input:checked) span {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+
+.verdict {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+/* 05 Field Notes */
+.daily-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 #f7d4df;
+  overflow: hidden;
+}
+
+.daily-item {
+  padding: 24px;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.daily-item:nth-child(3n) {
+  border-right: 0;
+}
+
+.daily-item:nth-last-child(-n+3) {
+  border-bottom: 0;
+}
+
+.daily-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: #a36f85;
+}
+
+.daily-item h3 {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+
+.daily-item p {
+  font-size: 18px;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.bond-note {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 #f7d4df;
+  font-size: 19.5px;
+  color: var(--ink-secondary);
+  line-height: 1.75;
+}
+
+.bond-note strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* Endcap & Footer */
+.endcap {
+  padding: 80px 0;
+  text-align: center;
+  background: #ffe8f0;
+  border-top: 2px solid var(--ink);
+}
+
+.endcap h2 {
+  font-size: clamp(42px, 6.2vw, 68px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.endcap p {
+  font-size: 19.5px;
+  color: var(--ink-secondary);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.75;
+}
+
+footer {
+  background: #fff0f5;
+  border-top: 2px solid var(--ink);
+  padding: 24px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.footer-inner strong {
+  color: var(--ink);
+}
+
+@media (max-width: 850px) {
+  .hero-grid,
+  .world-grid,
+  .project-grid,
+  .manual-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-intro {
+    max-width: 100%;
+  }
+
+  .daily-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .daily-item:nth-child(3n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .daily-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .daily-item:nth-last-child(-n+3) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .daily-item:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 62px 0 54px;
+  }
+
+  .character-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 19px;
+  }
+
+  .character-specs {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 14px 0 0;
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
+  .character-glyph {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: min(100% - 32px, 560px);
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .daily-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-item {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .daily-item:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 06 Guardian Hooks */
+.hook-note {
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: var(--surface-subtle);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  font-size: 19px;
+  color: var(--ink-secondary);
+  line-height: 1.7;
+}
+
+.hook-note strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+</style>
+</head>
+<body>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-kicker">SID 생명연구소 × PRIME · 공개 프로젝트</p>
+        <h1>LITTLE <br>MONSTERS</h1>
+        <p class="hero-copy">
+          <h2><strong>네 명의 악당, 한 명의 보호자, 그리고 생방송 카메라.</strong></h2>
+          고위험 여성 디펙터 넷을 신체 역전시켜 진행하는 화이트채널 생방송 재활 쇼! <b>지금부터 시작합니다!</b></p>
+      </div>
+
+      <div class="hero-meta" aria-label="프로젝트 요약">
+        <div class="hero-meta-row"><span>PARTNERS</span><strong>SID 생명연구소 × PRIME</strong></div>
+        <div class="hero-meta-row"><span>CHANNEL</span><strong>화이트채널</strong></div>
+        <div class="hero-meta-row"><span>STATUS</span><strong>LIVE REHAB SHOW</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="world">
+    <div class="wrap world-grid">
+      <div>
+        <p class="section-label">01 / THE WORLD</p>
+        <h2>평범한 일상 아래,<br>또 다른 뉴욕</h2>
+        <p class="world-lead">
+          현대 뉴욕. 평범한 일상 아래에는 이능력자와 범죄자들이 뒤엉킨 또 다른 세계가 존재한다.</p>
+        <p class="world-sub">
+          영웅은 시민을 지키고, 범죄자는 사냥당한다. 그리고 그 모든 광경은 누군가의 구독료와 광고 수익으로 환산된다.
+        </p>
+        <div class="tag-list">
+          <span>MODERN NYC × ESPERS</span>
+          <span>HUNTERS × DEFECTORS</span>
+          <span>GREY MORALITY</span>
+          <span>LIVE STREAM CULTURE</span>
+        </div>
+      </div>
+
+      <div class="org-list">
+        <article class="org-item">
+          <div class="org-head">
+            <h3>SID</h3>
+            <span class="mono">SPECIAL INTERVENTION DIVISION</span>
+          </div>
+          <p>이능 범죄를 진압하고 능력자들을 관리하는 특수 기관. 시민들에게는 영웅을 지원하는 공권력으로 알려져 있다.</p>
+          <div class="org-sub">
+            <div class="org-sub-head">
+              <h4>HUNTER</h4>
+              <span class="mono">CLASSIFICATION</span>
+            </div>
+            <p class="pillar-desc">대중의 영웅이자 PRIME의 상품. <br>실적과 계급에 따라 수익을 배분받는다.</p>
+            <dl class="tier-list">
+              <div class="tier-row">
+                <dt class="tier-tag is-green">B급 · GREEN / YELLOW</dt>
+                <dd class="tier-note">베테랑 헌터</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-orange">A급 · ORANGE / RED</dt>
+                <dd class="tier-note">에이스 · 독립 작전 가능</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-black">S급 · RED / BLACK</dt>
+                <dd class="tier-note">국가 기밀급 이능 병기</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+        <article class="org-item">
+          <div class="org-head">
+            <h3>PRIME</h3>
+            <span class="mono">TRANSNATIONAL PLATFORM</span>
+          </div>
+          <p>이능 범죄와 헌터 활동을 중계·상품화하는 초국적 스트리밍 플랫폼. 시청률과 화제성은 헌터의 등급과 수익, 나아가 여론과 생존권까지 좌우한다.</p>
+          <div class="org-sub">
+            <div class="org-sub-head">
+              <h4>BROADCAST & RANK</h4>
+              <span class="mono">F ~ SSS</span>
+            </div>
+            <p class="pillar-desc">F~SSS 등급은 전투력보다 인기·조회수·연출력으로 결정되며 여론·신용·생존권에 영향력을 행사한다.</p>
+            <dl class="tier-list">
+              <div class="tier-row">
+                <dt class="tier-tag">WHITE LABEL</dt>
+                <dd class="tier-note">공식 임무 중계 (7초 지연·검열)</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-black">BLACK LABEL</dt>
+                <dd class="tier-note">비공식 무검열 방송</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-red">RANK F ~ SSS</dt>
+                <dd class="tier-note">인기·조회수·연출력 기준</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+        <article class="org-item" aria-label="디펙터 위험도 체계">
+          <div class="org-head">
+            <h3>DEFECTOR</h3>
+            <span class="mono">THREAT LEVEL</span>
+          </div>
+          <p>범죄를 저지르는 능력자는 <strong>디펙터(Defector)</strong>라 불린다. 위험도가 높을수록 현상금과 PRIME 상품 가치가 함께 상승한다.</p>
+          <div class="org-sub">
+            <dl class="tier-list" style="border-top: 0; padding-top: 0;">
+              <div class="tier-row">
+                <dt class="tier-tag is-green">GREEN</dt>
+                <dd class="tier-note">단순 범죄</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-orange">ORANGE</dt>
+                <dd class="tier-note">공공시설·상업지 파괴</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-red">RED</dt>
+                <dd class="tier-note">통제 불능</dd>
+              </div>
+              <div class="tier-row">
+                <dt class="tier-tag is-black">BLACK</dt>
+                <dd class="tier-note">대량 인명 피해 위험</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="project">
+    <div class="wrap project-grid">
+      <div class="project-summary">
+        <p class="section-label">02 / PUBLIC PROJECT</p>
+        <h1>LITTLE MONSTERS!</h1>
+        <h3>SID 생명연구소 × PRIME 합작<br>화이트채널 생방송 재활 쇼</h3>
+        <p>‘연령 역전과 일상 교화를 통한 대국민 이능력자 순화 프로젝트’</p>
+        <div class="warning-line">
+          <strong>FAILURE CONDITION</strong>
+          시청률 저조나 대형 방송 사고로 실패 판정을 받으면 개체는 즉시 회수되어 추가 연구에 들어가며, 보호자(당신)에게는 징계와 문책 예정
+        </div>
+      </div>
+
+      <dl class="facts-grid">
+        <div class="fact-cell"><dt>JOINT HOST</dt><dd>SID 생명연구소 × PRIME</dd></div>
+        <div class="fact-cell"><dt>BROADCAST</dt><dd>화이트채널 (7초 지연·검열 생방송)</dd></div>
+        <div class="fact-cell"><dt>SUBJECTS</dt><dd>신체 역전 고위험 여성 디펙터 4명</dd></div>
+        <div class="fact-cell"><dt>PUBLIC CAUSE</dt><dd>대국민 이능력자 순화 프로젝트</dd></div>
+        <div class="fact-cell is-wide"><dt>ON FAILURE</dt><dd class="is-secret">개체 회수 및 추가 연구 · 보호자 징계/문책</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="roster">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">03 / SUBJECT DATABASE</p>
+          <h2>네 명의 작은 괴물들!</h2>
+        </div>
+      </div>
+
+      <div class="roster-tools">
+        <div class="filter-group" role="group" aria-label="위협 등급 필터">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">ALL / 04</button>
+          <button class="filter-btn" data-filter="RED" aria-pressed="false">RED</button>
+          <button class="filter-btn" data-filter="ORANGE" aria-pressed="false">ORANGE</button>
+        </div>
+        <span class="roster-count" id="rosterCount">04 RECORDS FOUND</span>
+      </div>
+
+      <div class="character-grid" id="characterGrid" aria-label="캐릭터 전체 목록"></div>
+    </div>
+  </section>
+
+  <section class="section" id="manual">
+    <div class="wrap manual-grid">
+      <div>
+        <p class="section-label">04 / GUARDIAN DAILY LOG</p>
+        <h2>오늘도 무사히<br>살아남을 수 있을까?</h2>
+        <p class="section-intro" style="margin-top: 14px;">보호자로 지정된 당신에게 배정된 기본 업무. 완료한 항목을 체크해 오늘의 생존율을 확인하자.</p>
+
+        <div class="progress-panel">
+          <div class="progress-row">
+            <span>DAILY SURVIVAL RATE</span>
+            <strong id="progressText">0 / 9</strong>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-row">
+            <span id="progressStatus">MISSION IN PROGRESS</span>
+            <span id="progressPercent">00%</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="task-list" id="taskList"></div>
+        <p class="verdict" id="verdict" aria-live="polite">오늘도 무사히 하루를 마칠 수 있을까?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="daily">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">05 / FIELD NOTES</p>
+          <h2>당신을 기다리는 것</h2>
+        </div>
+        <p class="section-intro">보호자의 일상은 평범한 육아와 현장 업무, 그리고 예상할 수 없는 작은 사고들로 채워진다.</p>
+      </div>
+
+      <div class="daily-grid">
+        <article class="daily-item">
+          <div class="daily-head"><span>01 / DOMESTIC</span></div>
+          <h3>HOME LIFE</h3>
+          <p>요리, 식사, 청소, 목욕, 잠자리.<br> 평범한 하루조차 쉽지 않다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>02 / OUTSIDE</span></div>
+          <h3>NYC OUTINGS</h3>
+          <p>쇼핑, 공원, 지하철, 장난감 가게. <br>네 명과 외출하는 일은 <b>작은 작전</b>이다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>03 / INCIDENT</span></div>
+          <h3>LITTLE TROUBLE</h3>
+          <p>장난, 질투, 싸움, 가출 소동!<br> 사고의 원인은 대부분 아이들이다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>04 / FIELD WORK</span></div>
+          <h3>HUNTER DUTY</h3>
+          <p>SID 호출, 능력 폭주, 디펙터 사건. <br>보호자도 가끔 현장에 나가야 한다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>05 / NIGHT SHIFT</span></div>
+          <h3>BEDTIME</h3>
+          <p>잠들기 싫은 아이, 무서운 꿈, 몰래 찾아오는 작은 발소리.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>06 / RELATIONSHIP</span></div>
+          <h3>GROWING BOND</h3>
+          <p>조금씩 쌓이는 신뢰, 뜻밖의 애착, 천천히 변해가는 관계.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="guardian-hooks">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="section-label">06 / GUARDIAN ASSIGNMENT</p>
+          <h2>당신은 어쩌다<br>여기에 뽑혔을까?</h2>
+        </div>
+        <p class="section-intro">당신은 이 프로젝트의 보호자로 차출된 이능력자(헌터)입니다. 어울리는 사유를 고르거나 자유롭게 설정해 보세요.</p>
+      </div>
+
+      <div class="daily-grid">
+        <article class="daily-item">
+          <div class="daily-head"><span>01 / DEBT &amp; PENALTY</span></div>
+          <h3>빚더미 위약금</h3>
+          <p>임무 중 대형 기물 파손이나 계약 위반으로 막대한 배상금을 떠안았다. "1년 버티면 전액 탕감"이라는 SID의 조건을 거절할 수 없었다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>02 / DEMOTION</span></div>
+          <h3>윗선 눈 밖에 난 좌천</h3>
+          <p>상부 지시 불복종이나 내부 마찰로 본부의 눈엣가시가 되었다. 사실상 총알받이 겸 유배지로 이 생방송 쇼에 떠밀렸다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>03 / RATINGS DROP</span></div>
+          <h3>PRIME 등급 추락 위기</h3>
+          <p>실력은 있지만 화제성이 바닥을 치던 하꼬 헌터. PRIME PD들이 "빌런 넷을 붙여줄 테니 방송으로 재기하라"며 반강제로 투입했다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>04 / PAST GRUDGE</span></div>
+          <h3>직접 잡았던 담당 헌터</h3>
+          <p>디펙터 넷 중 일부를 현장에서 직접 체포해 수감시켰던 당사자. "네 손으로 잡았으니 재활도 끝까지 책임져라"는 명분으로 묶였다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>05 / SPECIALTY</span></div>
+          <h3>사고 수습 특화 능력</h3>
+          <p>전투용이 아닌 중화·진정·방어·치유 같은 희귀 보조 능력자. 생명연구소 알고리즘이 '통제 및 수습 최적임자'로 지목해 버렸다.</p>
+        </article>
+        <article class="daily-item">
+          <div class="daily-head"><span>06 / FREE CUSTOM</span></div>
+          <h3>그 밖의 자유 사유</h3>
+          <p>거액의 출연료에 눈이 멀었든, 특정 인물을 감시할 개인적 목적이 있든 상관없다. 당신만의 사유를 적어 시작해도 좋다.</p>
+        </article>
+      </div>
+
+      <div class="hook-note">
+        <strong>PLAY TIP</strong> · 첫 대화에서 본인의 헌터 등급·능력·합류 사유를 가볍게 던져주시면, 빌런 4명과 PRIME 채팅창이 그 배경에 맞춰 바로 반응합니다.
+      </div>
+    </div>
+  </section>
+
+  <section class="endcap">
+    <div class="wrap">
+      <p class="section-label">END OF BRIEFING / BEGINNING OF CHAOS</p>
+      <h2>FOUR LITTLE MONSTERS<br>ONE BIG PROBLEM!</h2>
+      <p>세상을 위협하던 악당들이 작아져서는 당신의 집으로 왔다.<br>잘 부탁해요, 보호자님. 오늘도 무사히 살아남으시길!</p>
+      <a class="btn-primary" href="#manual">보호자 업무 시작하기 <span>↘</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span><strong>LITTLE MONSTERS</strong> · SID LIFE RESEARCH LAB</span>
+    <span>CONFIDENTIAL / DO NOT DISTRIBUTE</span>
+  </div>
+</footer>
+
+<script>
+const characters = [
+  { id: '01', name: 'REGINA', img: 'https://pub-f83f8ef5c7e04adbb844998ecd71df0d.r2.dev/0.webp', title: 'THE LITTLE QUEEN', age: '35세 → 7세', lv: 'RED', color: '#ffe4e6', glyph: 'R', trait: 'ENTJ · 8w7 | 오만함, 권위적, 지배욕, 승부욕', power: '정신 지배 / 강제 명령' },
+  { id: '03', name: 'RIFT', img: 'https://pub-f83f8ef5c7e04adbb844998ecd71df0d.r2.dev/2.webp', title: 'THE LITTLE PHANTOM', age: '22세 → 5세', lv: 'ORANGE', color: '#ede9fe', glyph: 'R', trait: 'ISFP · 9w8 | 내향적, 고집스러움, 관찰형, 소유욕', power: '공간 왜곡 / 중력 조작' },
+  { id: '04', name: 'SIREN', img: 'https://pub-f83f8ef5c7e04adbb844998ecd71df0d.r2.dev/1.webp', title: 'THE LITTLE ACTRESS', age: '27세 → 6세', lv: 'RED', color: '#fce7f3', glyph: 'S', trait: 'ENTP · 3w4 | 능글맞음, 영악함, 사교적, 계산적', power: '환각 / 감각 조작' },
+  { id: '05', name: 'FURY', img: 'https://pub-f83f8ef5c7e04adbb844998ecd71df0d.r2.dev/3.webp', title: 'THE LITTLE BEAST', age: '25세 → 7세', lv: 'RED', color: '#dcfce7', glyph: 'F', trait: 'ISTP · 8w9 | 직설적, 무뚝뚝함, 본능적, 독립적', power: '신체 강화 / 초감각' }
+];
+
+let activeFilter = 'all';
+const grid = document.getElementById('characterGrid');
+
+function renderCards() {
+  grid.innerHTML = '';
+  const visible = characters.filter(c => activeFilter === 'all' || c.lv === activeFilter);
+  document.getElementById('rosterCount').textContent = String(visible.length).padStart(2, '0') + ' RECORDS FOUND';
+
+  visible.forEach(c => {
+    const article = document.createElement('article');
+    article.className = 'character-card';
+    const badgeClass = c.lv === 'RED' ? 'is-red' : 'is-orange';
+    const imgHTML = c.img
+      ? `<img src="${c.img}" alt="${c.name}" loading="lazy">`
+      : `<div class="img-placeholder"><b>${c.glyph}</b>IMAGE 1:1</div>`;
+    article.innerHTML = `
+      <div class="character-img" style="--char-bg: ${c.color}">${imgHTML}</div>
+      <div class="character-head">
+        <div class="character-id-wrap">
+          <div>
+            <div class="character-name">${c.name}</div>
+            <p class="character-title">NO.${c.id} · ${c.title}</p>
+          </div>
+        </div>
+        <span class="threat-badge ${badgeClass}">${c.lv}</span>
+      </div>
+      <dl class="character-specs">
+        <dt>BODY AGE</dt><dd>${c.age}</dd>
+        <dt>PERSONALITY</dt><dd>${c.trait}</dd>
+        <dt>ABILITY</dt><dd>${c.power}</dd>
+      </dl>
+    `;
+    grid.appendChild(article);
+  });
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeFilter = btn.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(x => x.setAttribute('aria-pressed', String(x === btn)));
+    renderCards();
+  });
+});
+
+renderCards();
+
+const tasks = [
+  '네 명의 식사 챙기기',
+  '양치 및 목욕 감독',
+  '잠자리 준비 및 수면 관리',
+  '장난과 사고 수습',
+  '서로 싸우는 아이들 중재',
+  '외출 시 인원 확인',
+  '억제 팔찌 상태 확인',
+  'SID 보고서 작성',
+  '가끔 도시를 구하기'
+];
+
+const taskList = document.getElementById('taskList');
+// 2~4개를 무작위로 체크 (고정 상태, 클릭 불가)
+const checkedCount = 2 + Math.floor(Math.random() * 3);
+const checkedSet = new Set(
+  tasks.map((_, i) => i).sort(() => Math.random() - 0.5).slice(0, checkedCount)
+);
+tasks.forEach((task, i) => {
+  const label = document.createElement('label');
+  label.className = 'task';
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.id = 'task-' + i;
+  input.checked = checkedSet.has(i);
+  input.disabled = true;
+  const span = document.createElement('span');
+  span.textContent = task;
+  label.append(input, span);
+  taskList.appendChild(label);
+});
+
+function updateProgress() {
+  const done = taskList.querySelectorAll('input:checked').length;
+  const total = tasks.length;
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('progressText').textContent = done + ' / ' + total;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPercent').textContent = String(pct).padStart(2, '0') + '%';
+  document.getElementById('progressStatus').textContent = done === total ? 'ALL MISSIONS COMPLETE' : 'MISSION IN PROGRESS';
+  document.getElementById('verdict').textContent =
+    done === 0
+      ? '오늘도 무사히 하루를 마칠 수 있을까?'
+      : done < total
+      ? `${done} / ${total} 완료 — 아직 하루는 끝나지 않았다.`
+      : '전부 완료. 오늘도 무사히 살아남았다, 보호자님.';
+}
+
+updateProgress();
+</script>
+</body>
+</html>
